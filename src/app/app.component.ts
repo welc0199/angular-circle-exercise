@@ -15,6 +15,7 @@ export interface Circle {
 export class AppComponent {
   public circlesStarted: boolean = false;
   public showSameColor: boolean = false;
+  public canDeleteCircle: boolean = false;
 
     public showCircles(): void {
       this.circlesStarted = true;

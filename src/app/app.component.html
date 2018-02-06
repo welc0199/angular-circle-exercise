@@ -2,16 +2,26 @@
   <button fxLayout="center center" mat-button class="start-button" (click)="showCircles()">Get started!</button>
 </div>
 <ng-template #started>
-  <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
-    <div *ngFor="let circle of circles" class="circle-parent">
-      <button  mat-button class="circle first-entrance" 
-        [style.background-color]="showSameColor ? '#0099ff' : circle.color" 
-        [style.top]="circle.top" 
-        (click)="showCircleId(circle.id)">
-        <div  *ngIf="circle.showId" class="with-id">{{circle.id}}</div>
-      </button>
+  <div fxLayout="row" fxFlex="100">
+    <div fxLayout="row" fxFlex="15">
+      <div fxLayout="column" fxFlex="100" fxLayoutGap="30px" fxLayoutAlign="center center">
+          <mat-slide-toggle [(ngModel)]="showSameColor">Disable colors</mat-slide-toggle>
+          <mat-slide-toggle [(ngModel)]="canDeleteCircle">Enable delete</mat-slide-toggle>
+          <mat-slider vertical></mat-slider>
+      </div>
     </div>
-  </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex>
+      <div *ngFor="let circle of circles" class="circle-parent">
+        <button  mat-button class="circle first-entrance" 
+          [style.background-color]="showSameColor ? '#0099ff' : circle.color" 
+          [style.top]="circle.top" 
+          (click)="showCircleId(circle.id)">
+          <div *ngIf="circle.showId" class="with-id">{{circle.id}}</div>
+        </button>
+      </div>
+    </div>
+</div>
 </ng-template>
+
 
 

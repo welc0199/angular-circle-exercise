@@ -17,10 +17,17 @@
         &.first-entrance {
             animation: bounce-down cubic-bezier(.18,.89,.09,.84) 1s both;
         }
+
+        &:hover {
+            opacity: .8;
+        }
+
         .with-id {
             animation: fade-in 4s both;
             font-size: 50px;
         }
+
+
     }
 }
 
@@ -43,7 +50,7 @@
     0% {
         opacity: 0;
     }
-    50% {
+    30% {
         opacity: 1;
         color: #ffffff
     }
