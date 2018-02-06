@@ -4,16 +4,12 @@
 <ng-template #started>
   <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
     <div *ngFor="let circle of circles" class="circle-parent">
-      <button *ngIf="!circle.showId" mat-button class="circle first-entrance" 
-        [style.background-color]="circle.color" 
+      <button  mat-button class="circle first-entrance" 
+        [style.background-color]="showSameColor ? '#0099ff' : circle.color" 
         [style.top]="circle.top" 
         (click)="showCircleId(circle.id)">
+        <div  *ngIf="circle.showId" class="with-id">{{circle.id}}</div>
       </button>
-        <button *ngIf="circle.showId" mat-button class="circle with-id"
-          [style.background-color]="circle.color" 
-          [style.color]="'#ffffff'" 
-          [style.top]="circle.top" 
-          (click)="showCircleId(circle.id)">{{circle.id}}</button>
     </div>
   </div>
 </ng-template>

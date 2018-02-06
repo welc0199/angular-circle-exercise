@@ -17,8 +17,9 @@
         &.first-entrance {
             animation: bounce-down cubic-bezier(.18,.89,.09,.84) 1s both;
         }
-        &.with-id {
-            animation: fade-in 3s both;
+        .with-id {
+            animation: fade-in 4s both;
+            font-size: 50px;
         }
     }
 }
