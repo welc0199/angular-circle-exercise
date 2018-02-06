@@ -7,3 +7,50 @@
     left: 45%;
 }
 
+.circle-parent {
+    height: 80vh;
+    .circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        position: relative;
+        &.first-entrance {
+            animation: bounce-down cubic-bezier(.18,.89,.09,.84) 1s both;
+        }
+        &.with-id {
+            animation: fade-in 3s both;
+        }
+    }
+}
+
+@keyframes bounce-down {
+    0% {
+        top: 0;
+        animation: ease-in;
+    }
+    50% {
+        top: 100%;
+        animation: ease-out;
+    }
+    100% {
+        transform: translateY(0);
+        animation: ease-in;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+        color: #ffffff
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+    
+    
+

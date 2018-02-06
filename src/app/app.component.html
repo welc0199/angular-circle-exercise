@@ -1,5 +1,21 @@
-<div fxLayout="row" fxFlex="100">
-  <button fxLayout="center center" mat-button class="start-button">Get started!</button>
+<div fxLayout="row" fxFlex="100" *ngIf="!circlesStarted; else started">
+  <button fxLayout="center center" mat-button class="start-button" (click)="showCircles()">Get started!</button>
 </div>
+<ng-template #started>
+  <div fxLayout="row" fxLayoutAlign="space-between center" fxFlex="100">
+    <div *ngFor="let circle of circles" class="circle-parent">
+      <button *ngIf="!circle.showId" mat-button class="circle first-entrance" 
+        [style.background-color]="circle.color" 
+        [style.top]="circle.top" 
+        (click)="showCircleId(circle.id)">
+      </button>
+        <button *ngIf="circle.showId" mat-button class="circle with-id"
+          [style.background-color]="circle.color" 
+          [style.color]="'#ffffff'" 
+          [style.top]="circle.top" 
+          (click)="showCircleId(circle.id)">{{circle.id}}</button>
+    </div>
+  </div>
+</ng-template>
 
 
