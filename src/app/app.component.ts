@@ -15,7 +15,7 @@ export interface Circle {
 export class AppComponent {
   public circlesStarted: boolean = false;
   public showSameColor: boolean = false;
-  public canDeleteCircle: boolean = false;
+  public canDeleteCircles: boolean = false;
 
     public showCircles(): void {
       this.circlesStarted = true;
@@ -30,6 +30,11 @@ export class AppComponent {
       setTimeout(() => {
           this.circles[circleId - 1].showId = false;
       }, 4000);
+    }
+
+    public deleteCircle(event: Event, circleId: string): void {
+      event.preventDefault();
+      event.stopPropagation();
     }
 
     public circles: Circle[] = [

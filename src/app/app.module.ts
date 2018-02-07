@@ -11,6 +11,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSliderModule } from '@angular/material/slider';
 import { environment } from '../environments/environment';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     MatSliderModule,
     MatCheckboxModule,
     MatButtonModule,
+    MatIconModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
