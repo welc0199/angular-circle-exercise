@@ -5,6 +5,7 @@ export interface Circle {
   color: string,
   top: string,
   showId?: boolean,
+  deleted?: boolean;
 };
 
 @Component({
@@ -16,6 +17,7 @@ export class AppComponent {
   public circlesStarted: boolean = false;
   public showSameColor: boolean = false;
   public canDeleteCircles: boolean = false;
+  public sliderValue: number = 0;
 
     public showCircles(): void {
       this.circlesStarted = true;
@@ -32,9 +34,10 @@ export class AppComponent {
       }, 4000);
     }
 
-    public deleteCircle(event: Event, circleId: string): void {
+    public deleteCircle(event: Event, circle: Circle): void {
       event.preventDefault();
       event.stopPropagation();
+      circle.deleted = true;
     }
 
     public circles: Circle[] = [

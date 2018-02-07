@@ -1,30 +1,48 @@
 <div fxLayout="row" fxFlex="100" *ngIf="!circlesStarted; else started">
-  <button fxLayout="center center" mat-button class="start-button" (click)="showCircles()">Get started!</button>
+  <button fxLayout="center center" mat-button class="start-button" (click)="showCircles()">Start</button>
 </div>
+
 <ng-template #started>
+
   <div fxLayout="row" fxFlex="100">
     <div fxLayout="row" fxFlex="15">
       <div fxLayout="column" fxFlex="100" fxLayoutGap="30px" fxLayoutAlign="center center">
           <mat-slide-toggle [(ngModel)]="showSameColor">Disable colors</mat-slide-toggle>
           <mat-slide-toggle [(ngModel)]="canDeleteCircles">Enable delete</mat-slide-toggle>
-          <mat-slider vertical></mat-slider>
+          <mat-slider
+          [max]="100"
+          [min]="0"
+          [step]="1"
+          [(ngModel)]="sliderValue"
+           vertical></mat-slider>
       </div>
     </div>
+
     <div fxLayout="row" fxLayoutAlign="space-around center" fxFlex>
       <div *ngFor="let circle of circles" class="circle-parent">
-        <button  mat-button class="circle first-entrance" 
-        [disableRipple]="true"
-          [style.background-color]="showSameColor ? '#0099ff' : circle.color" 
+
+        <button *ngIf="!circle.deleted; else deleted" mat-button class="circle first-entrance" 
+          [disableRipple]="true"
+          [style.background-color]="showSameColor ? '#585b60' : circle.color" 
           [style.top]="circle.top" 
           (click)="showCircleId(circle.id)">
           <div *ngIf="circle.showId && !canDeleteCircles" class="with-id">{{circle.id}}</div>
-          <button *ngIf="canDeleteCircles" mat-icon-button (click)="deleteCircle($event, circle.id)">
+          <button *ngIf="canDeleteCircles" mat-icon-button (click)="deleteCircle($event, circle)">
             <mat-icon >delete</mat-icon>
           </button>
         </button>
+
+        <ng-template #deleted>
+          <div class="circle deleted" fxLayout="column">
+            <div fxLayoutAlign="center center" fxFlex>
+              {{circle.id}}
+            </div>
+          </div>
+        </ng-template>
+
       </div>
     </div>
-</div>
+  </div>
 </ng-template>
 
 

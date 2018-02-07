@@ -1,8 +1,9 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GestureConfig } from '@angular/material';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
@@ -12,6 +13,7 @@ import { MatSliderModule } from '@angular/material/slider';
 import { environment } from '../environments/environment';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
@@ -23,13 +25,14 @@ import { MatIconModule } from '@angular/material/icon';
     FlexLayoutModule,
     FormsModule,
     ReactiveFormsModule,
-    MatSlideToggleModule,
     MatSliderModule,
+    MatSlideToggleModule,
     MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
