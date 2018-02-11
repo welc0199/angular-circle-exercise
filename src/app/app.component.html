@@ -13,7 +13,8 @@
           [max]="100"
           [min]="0"
           [step]="1"
-          [(ngModel)]="sliderValue"
+          [ngModel]="sliderValue"
+          (input)="updateSliderAnimation($event)"
            vertical></mat-slider>
       </div>
     </div>
@@ -25,6 +26,8 @@
           [disableRipple]="true"
           [style.background-color]="showSameColor ? '#585b60' : circle.color" 
           [style.top]="circle.top" 
+          [style.opacity]="animationVar"
+          [style.transform]="animationVar"
           (click)="showCircleId(circle.id)">
           <div *ngIf="circle.showId && !canDeleteCircles" class="with-id">{{circle.id}}</div>
           <button *ngIf="canDeleteCircles" mat-icon-button (click)="deleteCircle($event, circle)">

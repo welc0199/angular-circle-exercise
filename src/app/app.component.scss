@@ -1,4 +1,11 @@
 
+:root {
+
+        --ty: 
+            0;
+    
+}
+
 .start-button {
     background-color: #4286f4;
     color: #ffffff;
@@ -17,6 +24,7 @@
         position: relative;
         color: #ffffff;
         font-size: 50px;
+        will-change: transform;
 
         &.first-entrance {
             animation: bounce-down cubic-bezier(.18,.89,.09,.84) 1s both;
@@ -47,7 +55,6 @@
         animation: ease-out;
     }
     100% {
-        transform: translateY(0);
         animation: ease-in;
     }
 }

@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl, SafeStyle} from '@angular/platform-browser';
+import { MatSliderChange } from '@angular/material/slider';;
 
 export interface Circle {
   id: number,
@@ -18,6 +20,12 @@ export class AppComponent {
   public showSameColor: boolean = false;
   public canDeleteCircles: boolean = false;
   public sliderValue: number = 0;
+  public style = document.documentElement.style;
+  public animationVar: SafeStyle;
+
+    constructor(private sanitizer: DomSanitizer) {
+          }
+  
 
     public showCircles(): void {
       this.circlesStarted = true;
@@ -38,6 +46,11 @@ export class AppComponent {
       event.preventDefault();
       event.stopPropagation();
       circle.deleted = true;
+    }
+
+    public updateSliderAnimation(event: MatSliderChange): void {
+        let style = `translateY(-${event.value}%) rotateX(${event.value * 7.2}deg)`;
+        this.animationVar = this.sanitizer.bypassSecurityTrustStyle(style);  
     }
 
     public circles: Circle[] = [
