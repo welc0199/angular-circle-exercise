@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GestureConfig } from '@angular/material';
+import { RouterModule } from '@angular/router';
 
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { AppComponent } from './app.component';
@@ -30,6 +31,7 @@ import 'hammerjs';
     MatCheckboxModule,
     MatButtonModule,
     MatIconModule,
+    RouterModule.forRoot([],{useHash:true})
   ],
   providers: [
   ],
